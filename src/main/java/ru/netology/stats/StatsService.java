@@ -36,8 +36,8 @@ public class StatsService {
                 minDealsIndex = index;
             }
             if (maxDeals > deal) {
-                maxDeals = deal,
-                maxDealsIndex = index
+                maxDeals = deal;
+                maxDealsIndex = index;
             }
             index += 1;
         }
@@ -46,10 +46,10 @@ public class StatsService {
     public int belowAboveAverage(long average, int deals, int belowAverage, int aboveAverage) {
         for (int deal : deals) {
             if (deal < average) {
-                belowAverage += 1
+                belowAverage += 1;
             }
             if (deal > average) {
-                aboveAverage += 1
+                aboveAverage += 1;
             }
         }
     }
