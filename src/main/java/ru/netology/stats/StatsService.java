@@ -25,7 +25,7 @@ public class StatsService {
 
     // забыл, как вернуть номер "такого-то" элемента массива
     // поэтому немного некрасиво получилось
-    public int topSalesMax(int[] deals, int index) {
+    public int maxDealsIndex(int[] deals, int index) {
         index = 1;
         int maxDeals = deals[0];
         for (int deal : deals) {
@@ -38,7 +38,7 @@ public class StatsService {
         return maxDealsIndex;
     }
 
-    public int topSalesMin(int[] deals, int index) {
+    public int minDealsIndex(int[] deals, int index) {
         index = 1;
         int minDeals = deals[0];
         for (int deal : deals) {

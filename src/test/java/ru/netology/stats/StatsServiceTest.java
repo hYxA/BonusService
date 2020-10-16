@@ -10,13 +10,13 @@ class StatsServiceTest {
     @CsvSource(value ={
             "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
     })
-    StatsService SService = new StatsService();
+    StatsService StatisticService = new StatsService();
 
 
     void calculateSumm(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                        int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
-        int summ = SService.sumCalculate(deals, expectedSumm);
+        int summ = StatisticService.sumCalculate(deals, expectedSumm);
         assertEquals(expectedSumm, summ);
 
     }
@@ -24,7 +24,7 @@ class StatsServiceTest {
     void calculateAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                           int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
-        long average = SService.averageCalculate(deals, expectedAverage);
+        long average = StatisticService.averageCalculate(deals.length, expectedSumm, expectedAverage);
         assertEquals(expectedAverage, average);
 
     }
@@ -32,7 +32,7 @@ class StatsServiceTest {
     void calculateMaxDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                           int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
-        int maxDealsIndex = SService.maxDealsIndex(deals, expectedMaxDealsIndex);
+        int maxDealsIndex = StatisticService.maxDealsIndex(deals, expectedMaxDealsIndex);
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
@@ -40,7 +40,7 @@ class StatsServiceTest {
     void calculateMinDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                 int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
-        int minDealsIndex = SService.minDealsIndex(deals, expectedMinDealsIndex);
+        int minDealsIndex = StatisticService.minDealsIndex(deals, expectedMinDealsIndex);
         assertEquals(expectedMinDealsIndex, minDealsIndex);
 
     }
@@ -48,7 +48,7 @@ class StatsServiceTest {
     void calculateBelowAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
-        int belowAverage = SService.belowAverage(deals, expectedBelowAverage);
+        int belowAverage = StatisticService.belowAverage(expectedAverage, deals, expectedBelowAverage);
         assertEquals(expectedBelowAverage, belowAverage);
 
     }
@@ -56,7 +56,7 @@ class StatsServiceTest {
     void calculateAboveAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
-        int aboveAverage = SService.aboveAverage(deals, expectedAboveAverage);
+        int aboveAverage = StatisticService.aboveAverage(expectedAverage, deals, expectedAboveAverage);
         assertEquals(expectedAboveAverage, aboveAverage);
 
     }
