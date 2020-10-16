@@ -1,8 +1,7 @@
 package ru.netology.stats;
 
 public class StatsService {
-    int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-    int length = deals.length;
+    int[] deals = new int[12]; // = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     int maxDealsIndex;
     int minDealsIndex;
     int summ;
@@ -19,7 +18,7 @@ public class StatsService {
     }
 
     public long averageCalculate(int length, int summ, long average) {
-        average = summ / length;
+        average = summ / deals.length;
         return average;
     }
 
