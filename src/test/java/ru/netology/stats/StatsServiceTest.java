@@ -10,10 +10,11 @@ class StatsServiceTest {
     @CsvSource(value ={
             "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"    //
     });
+    StatsService SService = new StatsService();
+
 
     void calculateSumm(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                        int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
-        StatsService SService = new StatsService();
 
         int summ = SService.sumCalculate(int deals[], expectedSumm);
 
@@ -21,7 +22,10 @@ class StatsServiceTest {
 
     }
 
-    void calculateAverage(int[] deals, long average)
+    void calculateAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
+                          int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+        long  = SService.averageCalculate(int deals[], expectedAverage);
+    }
 
 
 
