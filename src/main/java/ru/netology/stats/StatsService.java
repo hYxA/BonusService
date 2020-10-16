@@ -10,6 +10,9 @@ public class StatsService {
     int belowAverage = 0;
     int aboveAverage = 0;
 
+    /**
+     * расчёт суммы продаж
+     */
     public int sumCalculate(int[] deals, int summ) {
         for (int deal : deals) {
             summ += deal;
@@ -17,14 +20,20 @@ public class StatsService {
         return summ;
     }
 
+    /**
+     * расчёт среднего числа продаж в месяц
+     */
     public long averageCalculate(int length, int summ, long average) {
         average = summ / deals.length;
         return average;
     }
 
 
-    // забыл, как вернуть номер "такого-то" элемента массива
-    // поэтому немного некрасиво получилось
+    // забыл, как вернуть номер "такого-то" элемента массива, поэтому немного некрасиво
+
+    /**
+     * последний месяц с наивысшими продажами
+     */
     public int maxDealsIndex(int[] deals, int index) {
         index = 1;
         int maxDeals = deals[0];
@@ -38,6 +47,9 @@ public class StatsService {
         return maxDealsIndex;
     }
 
+    /**
+     * последний месяц с наихудшими продажами
+     */
     public int minDealsIndex(int[] deals, int index) {
         index = 1;
         int minDeals = deals[0];
@@ -51,14 +63,21 @@ public class StatsService {
         return minDealsIndex;
     }
 
+    /**
+     * количество месяцев с количеством продаж ниже среднего
+     */
     public int belowAverage(long average, int[] deals, int belowAverage) {
         for (int deal : deals) {
             if (deal < average) {
                 belowAverage += 1;
             }
         }
-    return belowAverage;}
+        return belowAverage;
+    }
 
+    /**
+     * количество месяцев с количеством продаж выше среднего
+     */
     public int aboveAverage(long average, int[] deals, int aboveAverage) {
         for (int deal : deals) {
 
@@ -66,5 +85,6 @@ public class StatsService {
                 aboveAverage += 1;
             }
         }
-        return aboveAverage;}
+        return aboveAverage;
+    }
 }
