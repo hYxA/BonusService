@@ -45,4 +45,19 @@ class StatsServiceTest {
 
     }
 
+    void calculateBelowAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
+                               int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+
+        int belowAverage = SService.belowAverage(int[] deals, expectedBelowAverage);
+        assertEquals(expectedBelowAverage, belowAverage);
+
+    }
+
+    void calculateAboveAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
+                               int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+
+        int aboveAverage = SService.aboveAverage(int[] deals, expectedAboveAverage);
+        assertEquals(expectedAboveAverage, aboveAverage);
+
+    }
 }
