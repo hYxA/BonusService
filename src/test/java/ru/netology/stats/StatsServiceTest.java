@@ -10,12 +10,11 @@ class StatsServiceTest {
 
     StatsService StatisticService = new StatsService();
 
-    @ParameterizedTest
+    @ParameterizedTest //(index = 0)
     @CsvSource(value = {
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+            "calculateSumm, {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}, 180"
     })
-    void calculateSumm(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                       int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+    void calculateSumm(String testName, int[] deals, int expectedSumm) {
 
         int summ = StatisticService.sumCalculate(deals, expectedSumm);
         assertEquals(expectedSumm, summ);
@@ -24,10 +23,9 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+            "calculateAverage, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15"
     })
-    void calculateAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                          int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+    void calculateAverage(String testName, int[] deals, int expectedSumm, long expectedAverage) {
 
         long average = StatisticService.averageCalculate(deals.length, expectedSumm, expectedAverage);
         assertEquals(expectedAverage, average);
@@ -36,10 +34,9 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+            "calculateMaxDealsIndex, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 8"
     })
-    void calculateMaxDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+    void calculateMaxDealsIndex(String testName, int[] deals, int expectedMaxDealsIndex) {
 
         int maxDealsIndex = StatisticService.maxDealsIndex(deals, expectedMaxDealsIndex);
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
@@ -48,10 +45,9 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+            "calculateMinDealsIndex, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 9"
     })
-    void calculateMinDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+    void calculateMinDealsIndex(String testName, int[] deals, int expectedMinDealsIndex) {
 
         int minDealsIndex = StatisticService.minDealsIndex(deals, expectedMinDealsIndex);
         assertEquals(expectedMinDealsIndex, minDealsIndex);
@@ -60,10 +56,9 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+            "calculateBelowAverage, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 5"
     })
-    void calculateBelowAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                               int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+    void calculateBelowAverage(String testName, int[] deals, long expectedAverage, int expectedBelowAverage, ) {
 
         int belowAverage = StatisticService.belowAverage(expectedAverage, deals, expectedBelowAverage);
         assertEquals(expectedBelowAverage, belowAverage);
@@ -72,10 +67,9 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+            "calculateAboveAverage, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 5"
     })
-    void calculateAboveAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                               int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+    void calculateAboveAverage(String testName, int[] deals, long expectedAverage, int expectedAboveAverage) {
 
         int aboveAverage = StatisticService.aboveAverage(expectedAverage, deals, expectedAboveAverage);
         assertEquals(expectedAboveAverage, aboveAverage);
