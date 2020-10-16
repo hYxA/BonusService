@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
 
-
+    int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     StatsService StatisticService = new StatsService();
 
     @ParameterizedTest //(index = 0)
     @CsvSource(value = {
-            "calculateSumm, {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}, 180"
+            "calculateSumm, 180"
     })
     void calculateSumm(String testName, int[] deals, int expectedSumm) {
 
@@ -23,7 +23,7 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateAverage, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15"
+            "calculateAverage, 180, 15"
     })
     void calculateAverage(String testName, int[] deals, int expectedSumm, long expectedAverage) {
 
@@ -34,7 +34,7 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateMaxDealsIndex, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 8"
+            "calculateMaxDealsIndex, 8"
     })
     void calculateMaxDealsIndex(String testName, int[] deals, int expectedMaxDealsIndex) {
 
@@ -45,7 +45,7 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateMinDealsIndex, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 9"
+            "calculateMinDealsIndex, 9"
     })
     void calculateMinDealsIndex(String testName, int[] deals, int expectedMinDealsIndex) {
 
@@ -56,9 +56,9 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateBelowAverage, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 5"
+            "calculateBelowAverage, 5"
     })
-    void calculateBelowAverage(String testName, int[] deals, long expectedAverage, int expectedBelowAverage, ) {
+    void calculateBelowAverage(String testName, int[] deals, long expectedAverage, int expectedBelowAverage) {
 
         int belowAverage = StatisticService.belowAverage(expectedAverage, deals, expectedBelowAverage);
         assertEquals(expectedBelowAverage, belowAverage);
@@ -67,7 +67,7 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateAboveAverage, '8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 5"
+            "calculateAboveAverage, 5"
     })
     void calculateAboveAverage(String testName, int[] deals, long expectedAverage, int expectedAboveAverage) {
 
