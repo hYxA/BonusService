@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class StatsServiceTest {
 
 
-    @CsvSource(value ={
-            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
-    })
     StatsService StatisticService = new StatsService();
 
     @ParameterizedTest
+    @CsvSource(value = {
+            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+    })
     void calculateSumm(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                        int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -21,7 +21,11 @@ class StatsServiceTest {
         assertEquals(expectedSumm, summ);
 
     }
+
     @ParameterizedTest
+    @CsvSource(value = {
+            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+    })
     void calculateAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                           int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -29,15 +33,23 @@ class StatsServiceTest {
         assertEquals(expectedAverage, average);
 
     }
+
     @ParameterizedTest
+    @CsvSource(value = {
+            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+    })
     void calculateMaxDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
-                          int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
+                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
         int maxDealsIndex = StatisticService.maxDealsIndex(deals, expectedMaxDealsIndex);
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
+
     @ParameterizedTest
+    @CsvSource(value = {
+            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+    })
     void calculateMinDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                 int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -45,7 +57,11 @@ class StatsServiceTest {
         assertEquals(expectedMinDealsIndex, minDealsIndex);
 
     }
+
     @ParameterizedTest
+    @CsvSource(value = {
+            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+    })
     void calculateBelowAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -53,7 +69,11 @@ class StatsServiceTest {
         assertEquals(expectedBelowAverage, belowAverage);
 
     }
+
     @ParameterizedTest
+    @CsvSource(value = {
+            "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
+    })
     void calculateAboveAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
