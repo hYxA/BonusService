@@ -6,13 +6,14 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
-    @ParameterizedTest
+
+
     @CsvSource(value ={
             "'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180, 15, 8, 9, 5, 5"
     })
     StatsService StatisticService = new StatsService();
 
-
+    @ParameterizedTest
     void calculateSumm(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                        int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -20,7 +21,7 @@ class StatsServiceTest {
         assertEquals(expectedSumm, summ);
 
     }
-
+    @ParameterizedTest
     void calculateAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                           int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -28,7 +29,7 @@ class StatsServiceTest {
         assertEquals(expectedAverage, average);
 
     }
-
+    @ParameterizedTest
     void calculateMaxDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                           int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -36,7 +37,7 @@ class StatsServiceTest {
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
-
+    @ParameterizedTest
     void calculateMinDealsIndex(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                 int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -44,7 +45,7 @@ class StatsServiceTest {
         assertEquals(expectedMinDealsIndex, minDealsIndex);
 
     }
-
+    @ParameterizedTest
     void calculateBelowAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
@@ -52,7 +53,7 @@ class StatsServiceTest {
         assertEquals(expectedBelowAverage, belowAverage);
 
     }
-
+    @ParameterizedTest
     void calculateAboveAverage(int[] deals, int expectedSumm, long expectedAverage, int expectedMaxDealsIndex,
                                int expectedMinDealsIndex, int expectedBelowAverage, int expectedAboveAverage) {
 
