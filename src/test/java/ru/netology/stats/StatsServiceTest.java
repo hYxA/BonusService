@@ -10,7 +10,7 @@ class StatsServiceTest {
     //int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     StatsService StatisticService = new StatsService();
 
-    @ParameterizedTest //(index = 0)
+    @ParameterizedTest(name = "[{index}] calculateSumm") //(index = 0)
     @CsvSource(value = {
             "calculateSumm, month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 180"
     })
