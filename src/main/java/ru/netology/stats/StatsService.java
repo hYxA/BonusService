@@ -11,6 +11,44 @@ public class StatsService {
     int aboveAverage = 0;
 
     /**
+     * данные по месяцам
+     */
+    int month1 = 8;
+    int month2 = 15;
+    int month3 = 13;
+    int month4 = 15;
+    int month5 = 17;
+    int month6 = 20;
+    int month7 = 19;
+    int month8 = 20;
+    int month9 = 7;
+    int month10 = 14;
+    int month11 = 14;
+    int month12 = 18;
+
+
+    /**
+     * перенос данных в массив для удобной обработки и расчётов
+     */
+
+    public int[] dataTranferToArray (int month1, int month2, int month3, int month4, int month5, int month6, int month7, int month8, int month9, int month10, int month11, int month12, int[] deals) {
+        deals[0] = month1;
+        deals[1] = month2;
+        deals[2] = month3;
+        deals[3] = month4;
+        deals[4] = month5;
+        deals[5] = month6;
+        deals[6] = month7;
+        deals[7] = month8;
+        deals[8] = month9;
+        deals[9] = month10;
+        deals[10] = month11;
+        deals[11] = month12;
+
+        return deals;
+    }
+
+    /**
      * расчёт суммы продаж
      */
     public int sumCalculate(int[] deals, int summ) {
