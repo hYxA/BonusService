@@ -7,17 +7,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
 
-    5464
-    int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    //int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     StatsService StatisticService = new StatsService();
 
     @ParameterizedTest //(index = 0)
     @CsvSource(value = {
             "calculateSumm, month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 180"
     })
-    void calculateSumm(String testName, int[] deals, int expectedSumm) {
+    void calculateSumm(int month1, int month2, int month3, int month4, int month5, int month6,
+                       int month7, int month8, int month9, int month10, int month11, int month12, int expectedSumm) {
 
-        int summ = StatisticService.sumCalculate(deals, expectedSumm);
+        int summ = StatisticService.sumCalculate (month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12);
         assertEquals(expectedSumm, summ);
 
     }

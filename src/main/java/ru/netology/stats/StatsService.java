@@ -51,10 +51,22 @@ public class StatsService {
     /**
      * расчёт суммы продаж
      */
-    public int sumCalculate(int[] deals, int summ) {
-        for (int deal : deals) {
-            summ += deal;
-        }
+    public int sumCalculate(int month1, int month2, int month3, int month4, int month5,
+                            int month6, int month7, int month8, int month9, int month10, int month11, int month12) {
+        int summ = 0;
+        summ += month1;
+        summ += month2;
+        summ += month3;
+        summ += month4;
+        summ += month5;
+        summ += month6;
+        summ += month7;
+        summ += month8;
+        summ += month9;
+        summ += month10;
+        summ += month11;
+        summ += month12;
+
         return summ;
     }
 
