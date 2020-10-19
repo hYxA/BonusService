@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
 
-    //int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    5464
+    int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     StatsService StatisticService = new StatsService();
 
     @ParameterizedTest //(index = 0)
