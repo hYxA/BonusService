@@ -12,7 +12,7 @@ class StatsServiceTest {
 
     @ParameterizedTest //(index = 0)
     @CsvSource(value = {
-            "calculateSumm, deals, 180"
+            "calculateSumm, month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 180"
     })
     void calculateSumm(String testName, int[] deals, int expectedSumm) {
 
@@ -34,11 +34,11 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateMaxDealsIndex, 8"
+            "calculateMaxDealsIndex, month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 8"
     })
-    void calculateMaxDealsIndex(String testName, int[] deals, int expectedMaxDealsIndex) {
+    void calculateMaxDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6, int month7, int month8, int month9, int month10, int month11, int month12, int expectedMaxDealsIndex) {
 
-        int maxDealsIndex = StatisticService.maxDealsIndex(deals, expectedMaxDealsIndex);
+        int maxDealsIndex = StatisticService.maxDealsIndex(month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, expectedMaxDealsIndex);
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
