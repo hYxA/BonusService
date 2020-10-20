@@ -12,30 +12,30 @@ class StatsServiceTest {
 
     @ParameterizedTest(name = "[{index}] calculateSumm")
     @CsvSource(value = {
-            "int month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 180"
+            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 180"
     })
     void calculateSumm(int month1, int month2, int month3, int month4, int month5, int month6,
                        int month7, int month8, int month9, int month10, int month11, int month12, int expectedSumm) {
 
-        int summ = StatisticService.sumCalculate (month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12);
+        int summ = StatisticService.sumCalculate(month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12);
         assertEquals(expectedSumm, summ);
 
     }
 
     @ParameterizedTest(name = "[{index}] calculateAverage")
     @CsvSource(value = {
-            "calculateAverage, 180, 15"
+            "180, 15"
     })
-    void calculateAverage(int[] deals, int expectedSumm, long expectedAverage) {
+    void calculateAverage(int expectedSumm, long expectedAverage) {
 
-        long average = StatisticService.averageCalculate(deals.length, expectedSumm, expectedAverage);
+        long average = StatisticService.averageCalculate(expectedSumm, expectedAverage);
         assertEquals(expectedAverage, average);
 
     }
 
     @ParameterizedTest(name = "[{index}] calculateMaxDealsIndex")
     @CsvSource(value = {
-            "month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 8"
+            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 8"
     })
     void calculateMaxDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6,
                                 int month7, int month8, int month9, int month10, int month11, int month12, int expectedMaxDealsIndex) {
