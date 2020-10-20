@@ -45,14 +45,15 @@ class StatsServiceTest {
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
-
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateMinDealsIndex, 9"
+            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 9"
     })
-    void calculateMinDealsIndex(String testName, int[] deals, int expectedMinDealsIndex) {
+    void calculateMinDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6,
+                                int month7, int month8, int month9, int month10, int month11, int month12, int expectedMinDealsIndex) {
 
-        int minDealsIndex = StatisticService.minDealsIndex(deals, expectedMinDealsIndex);
+        int minDealsIndex = StatisticService.minDealsIndex(month1, month2, month3, month4, month5,
+                month6, month7, month8, month9, month10, month11, month12);
         assertEquals(expectedMinDealsIndex, minDealsIndex);
 
     }

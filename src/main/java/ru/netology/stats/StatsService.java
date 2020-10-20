@@ -161,16 +161,77 @@ public class StatsService {
     /**
      * последний месяц с наихудшими продажами
      */
-    public int minDealsIndex(int[] deals, int index) {
-        index = 1;
-        int minDeals = deals[0];
-        for (int deal : deals) {
-            if (minDeals < deal) {
-                minDeals = deal;
-                minDealsIndex = index;
-            }
-            index += 1;
+    public int minDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6,
+                             int month7, int month8, int month9, int month10, int month11, int month12) {
+        int index = 1;
+        minDealsIndex = 1;
+        int minDeals = month1;
+        index += 1; // = 2
+        if (minDeals >= month2) {
+            minDeals = month2;
+            minDealsIndex = index;
         }
+
+        index += 1; // = 3
+        if (minDeals >= month3) {
+            minDeals = month3;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 4
+        if (minDeals >= month4) {
+            minDeals = month4;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 5
+        if (minDeals >= month5) {
+            minDeals = month5;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 6
+        if (minDeals >= month6) {
+            minDeals = month6;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 7
+        if (minDeals >= month7) {
+            minDeals = month7;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 8
+        if (minDeals >= month8) {
+            minDeals = month8;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 9
+        if (minDeals >= month9) {
+            minDeals = month9;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 10
+        if (minDeals >= month10) {
+            minDeals = month10;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 11
+        if (minDeals >= month11) {
+            minDeals = month11;
+            minDealsIndex = index;
+        }
+
+        index += 1; // = 12
+        if (minDeals >= month12) {
+            minDeals = month12;
+            minDealsIndex = index;
+        }
+
         return minDealsIndex;
     }
 
