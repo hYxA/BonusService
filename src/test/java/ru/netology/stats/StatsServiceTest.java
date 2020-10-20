@@ -73,11 +73,13 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "calculateAboveAverage, 5"
+            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15, 5"
     })
-    void calculateAboveAverage(String testName, int[] deals, long expectedAverage, int expectedAboveAverage) {
+    void calculateAboveAverage(int month1, int month2, int month3, int month4, int month5, int month6,
+                               int month7, int month8, int month9, int month10, int month11, int month12, long expectedAverage, int expectedAboveAverage) {
 
-        int aboveAverage = StatisticService.aboveAverage(expectedAverage, deals, expectedAboveAverage);
+        int aboveAverage = StatisticService.aboveAverage(month1, month2, month3, month4, month5,
+                month6, month7, month8, month9, month10, month11, month12, expectedAverage);
         assertEquals(expectedAboveAverage, aboveAverage);
 
     }
