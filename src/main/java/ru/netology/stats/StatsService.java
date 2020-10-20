@@ -238,11 +238,56 @@ public class StatsService {
     /**
      * количество месяцев с количеством продаж ниже среднего
      */
-    public int belowAverage(long average, int[] deals, int belowAverage) {
-        for (int deal : deals) {
-            if (deal < average) {
-                belowAverage += 1;
-            }
+    public int belowAverage(int month1, int month2, int month3, int month4, int month5, int month6,
+                            int month7, int month8, int month9, int month10, int month11, int month12, long average) {
+        int belowAverage = 0;
+        if (average > month1) {
+            belowAverage += 1;
+        }
+
+        if (average > month2) {
+            belowAverage += 1;
+        }
+
+        if (average > month3) {
+            belowAverage += 1;
+        }
+
+        if (average > month4) {
+            belowAverage += 1;
+        }
+
+        if (average > month5) {
+            belowAverage += 1;
+        }
+
+        if (average > month6) {
+            belowAverage += 1;
+        }
+
+
+        if (average > month7) {
+            belowAverage += 1;
+        }
+
+        if (average > month8) {
+            belowAverage += 1;
+        }
+
+        if (average > month9) {
+            belowAverage += 1;
+        }
+
+        if (average > month10) {
+            belowAverage += 1;
+        }
+
+        if (average > month11) {
+            belowAverage += 1;
+        }
+
+        if (average > month12) {
+            belowAverage += 1;
         }
         return belowAverage;
     }
