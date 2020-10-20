@@ -45,7 +45,7 @@ class StatsServiceTest {
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] calculateMinDealsIndex")
     @CsvSource(value = {
             "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 9"
     })
@@ -58,7 +58,7 @@ class StatsServiceTest {
 
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] calculateBelowAverage")
     @CsvSource(value = {
             "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15, 5"
     })
@@ -71,7 +71,7 @@ class StatsServiceTest {
 
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] calculateAboveAverage")
     @CsvSource(value = {
             "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15, 5"
     })
