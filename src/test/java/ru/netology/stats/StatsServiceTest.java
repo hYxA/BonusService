@@ -10,9 +10,9 @@ class StatsServiceTest {
     //int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     StatsService StatisticService = new StatsService();
 
-    @ParameterizedTest(name = "[{index}] calculateSumm") //(index = 0)
+    @ParameterizedTest(name = "[{index}] calculateSumm")
     @CsvSource(value = {
-            "calculateSumm, month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 180"
+            "int month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 180"
     })
     void calculateSumm(int month1, int month2, int month3, int month4, int month5, int month6,
                        int month7, int month8, int month9, int month10, int month11, int month12, int expectedSumm) {
@@ -22,24 +22,26 @@ class StatsServiceTest {
 
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] calculateAverage")
     @CsvSource(value = {
             "calculateAverage, 180, 15"
     })
-    void calculateAverage(String testName, int[] deals, int expectedSumm, long expectedAverage) {
+    void calculateAverage(int[] deals, int expectedSumm, long expectedAverage) {
 
         long average = StatisticService.averageCalculate(deals.length, expectedSumm, expectedAverage);
         assertEquals(expectedAverage, average);
 
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] calculateMaxDealsIndex")
     @CsvSource(value = {
-            "calculateMaxDealsIndex, month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 8"
+            "month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, 8"
     })
-    void calculateMaxDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6, int month7, int month8, int month9, int month10, int month11, int month12, int expectedMaxDealsIndex) {
+    void calculateMaxDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6,
+                                int month7, int month8, int month9, int month10, int month11, int month12, int expectedMaxDealsIndex) {
 
-        int maxDealsIndex = StatisticService.maxDealsIndex(month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12, expectedMaxDealsIndex);
+        int maxDealsIndex = StatisticService.maxDealsIndex(month1, month2, month3, month4, month5,
+                month6, month7, month8, month9, month10, month11, month12);
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
