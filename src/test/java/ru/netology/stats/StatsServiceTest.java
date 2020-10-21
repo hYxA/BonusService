@@ -51,28 +51,24 @@ class StatsServiceTest {
 
     }
 
-    @ParameterizedTest(name = "[{index}] calculateBelowAverage")
-    @CsvSource(value = {
-            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15, 5"
-    })
-    void calculateBelowAverage(int month1, int month2, int month3, int month4, int month5, int month6,
-                               int month7, int month8, int month9, int month10, int month11, int month12, long expectedAverage, int expectedBelowAverage) {
+    @Test
+    void calculateBelowAverage() {
 
-        int belowAverage = StatisticService.belowAverage(month1, month2, month3, month4, month5,
-                month6, month7, month8, month9, month10, month11, month12, expectedAverage);
+        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long average = 15;
+        int expectedBelowAverage = 5;
+        int belowAverage = StatisticService.belowAverage(deals, average);
         assertEquals(expectedBelowAverage, belowAverage);
 
     }
 
-    @ParameterizedTest(name = "[{index}] calculateAboveAverage")
-    @CsvSource(value = {
-            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15, 5"
-    })
-    void calculateAboveAverage(int month1, int month2, int month3, int month4, int month5, int month6,
-                               int month7, int month8, int month9, int month10, int month11, int month12, long expectedAverage, int expectedAboveAverage) {
+    @Test
+    void calculateAboveAverage() {
 
-        int aboveAverage = StatisticService.aboveAverage(month1, month2, month3, month4, month5,
-                month6, month7, month8, month9, month10, month11, month12, expectedAverage);
+        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long average = 15;
+        int expectedAboveAverage = 5;
+        int aboveAverage = StatisticService.aboveAverage(deals, average);
         assertEquals(expectedAboveAverage, aboveAverage);
 
     }
