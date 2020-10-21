@@ -31,28 +31,22 @@ class StatsServiceTest {
 
     }
 
-    @ParameterizedTest(name = "[{index}] calculateMaxDealsIndex")
-    @CsvSource(value = {
-            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 8"
-    })
-    void calculateMaxDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6,
-                                int month7, int month8, int month9, int month10, int month11, int month12, int expectedMaxDealsIndex) {
+    @Test
+    void calculateMaxDealsIndex() {
 
-        int maxDealsIndex = StatisticService.maxDealsIndex(month1, month2, month3, month4, month5,
-                month6, month7, month8, month9, month10, month11, month12);
+        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expectedMaxDealsIndex = 8;
+        int maxDealsIndex = StatisticService.maxDealsIndex(deals);
         assertEquals(expectedMaxDealsIndex, maxDealsIndex);
 
     }
 
-    @ParameterizedTest(name = "[{index}] calculateMinDealsIndex")
-    @CsvSource(value = {
-            "8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 9"
-    })
-    void calculateMinDealsIndex(int month1, int month2, int month3, int month4, int month5, int month6,
-                                int month7, int month8, int month9, int month10, int month11, int month12, int expectedMinDealsIndex) {
+    @Test
+    void calculateMinDealsIndex() {
 
-        int minDealsIndex = StatisticService.minDealsIndex(month1, month2, month3, month4, month5,
-                month6, month7, month8, month9, month10, month11, month12);
+        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expectedMinDealsIndex = 9;
+        int minDealsIndex = StatisticService.minDealsIndex(deals);
         assertEquals(expectedMinDealsIndex, minDealsIndex);
 
     }
