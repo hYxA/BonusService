@@ -4,7 +4,7 @@ public class StatsService {
     int[] deals = new int[12]; // = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     int maxDealsIndex;
     int minDealsIndex;
-    int summ;
+    int expectedSumm;
     int index;
     long average;
     int belowAverage = 0;
@@ -12,7 +12,7 @@ public class StatsService {
 
     /**
      * данные по месяцам
-     */
+
     int month1 = 8;
     int month2 = 15;
     int month3 = 13;
@@ -25,11 +25,11 @@ public class StatsService {
     int month10 = 14;
     int month11 = 14;
     int month12 = 18;
-
+     */
 
     /**
      * перенос данных в массив для удобной обработки и расчётов
-     */
+
 
     public int[] dataTranferToArray(int month1, int month2, int month3, int month4, int month5, int month6, int month7, int month8, int month9, int month10, int month11, int month12, int[] deals) {
         deals[0] = month1;
@@ -47,25 +47,16 @@ public class StatsService {
 
         return deals;
     }
-
-    /**
-     * расчёт суммы продаж
      */
-    public int sumCalculate(int month1, int month2, int month3, int month4, int month5, int month6,
-                            int month7, int month8, int month9, int month10, int month11, int month12) {
+    /**
+     * расчёт суммы продаж   */
+
+
+    public int sumCalculate(int[] deals, int expectedSumm) {
         int summ = 0;
-        summ += month1;
-        summ += month2;
-        summ += month3;
-        summ += month4;
-        summ += month5;
-        summ += month6;
-        summ += month7;
-        summ += month8;
-        summ += month9;
-        summ += month10;
-        summ += month11;
-        summ += month12;
+        for (int deal : deals) {
+            summ += deal;
+        }
 
         return summ;
     }
