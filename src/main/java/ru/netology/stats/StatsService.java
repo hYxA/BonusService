@@ -64,8 +64,8 @@ public class StatsService {
     /**
      * расчёт среднего числа продаж в месяц
      */
-    public long averageCalculate(int summ, long average) {
-        average = summ / deals.length;
+    public long averageCalculate(int summ, int[] deals) { //, long expectedAverage
+        long average = summ / deals.length;
         return average;
     }
 

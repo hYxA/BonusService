@@ -7,29 +7,26 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
+    int expectedSumm = 180;
+    long expectedAverage = 15;
 
     //int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     StatsService StatisticService = new StatsService();
 
     @Test
-    void calculateSumm() //int month1, int month2, int month3, int month4, int month5, int month6,
-    //int month7, int month8, int month9, int month10, int month11, int month12, int expectedSumm
-    {
-        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedSumm = 180;
+    void calculateSumm() {
 
-        int summ = StatisticService.sumCalculate(deals, expectedSumm); //month1, month2, month3, month4, month5, month6, month7, month8, month9, month10, month11, month12
+        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int summ = StatisticService.sumCalculate(deals, expectedSumm);
         assertEquals(expectedSumm, summ);
 
     }
 
-    @ParameterizedTest(name = "[{index}] calculateAverage")
-    @CsvSource(value = {
-            "180, 15"
-    })
-    void calculateAverage(int expectedSumm, long expectedAverage) {
-
-        long average = StatisticService.averageCalculate(expectedSumm, expectedAverage);
+    @Test
+    void calculateAverage() {
+        int summ = 180;
+        int[] deals = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long average = StatisticService.averageCalculate(summ, deals);
         assertEquals(expectedAverage, average);
 
     }
